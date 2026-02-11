@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseMash - Ingeniería de Sonido</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>🎵 CourseMash</h1>
+        <p>Comparación A/B para construir rankings de materias de Audio.</p>
+    </header>
+
+    <main class="dashboard">
+        <section class="card config-card">
+            <h2>1) Configura</h2>
+            
+            <label>Perfil del votante</label>
+            <select id="perfil-select">
+                <option value="estudiante">Estudiante de Pregrado</option>
+                <option value="profesional">Ingeniero de Mezcla</option>
+                <option value="productor">Productor Musical</option>
+            </select>
+
+            <label>Criterio de evaluación</label>
+            <select id="criterio-select">
+                <option value="importancia">Importancia Profesional</option>
+                <option value="dificultad">Dificultad Académica</option>
+                <option value="gusto">Gusto Personal</option>
+            </select>
+
+            <div class="actions">
+                <button id="btn-nuevo-duelo" class="btn-secondary">🔄 Nuevo duelo</button>
+                <button id="btn-reiniciar" class="btn-danger">🧹 Reiniciar</button>
+            </div>
+            <p class="note">Cada combinación de perfil y criterio guarda su propio ranking.</p>
+        </section>
+
+        <section class="card vote-card">
+            <h2>2) Vota</h2>
+            <p class="vote-instruction">¿Cuál es más prioritaria para tu carrera?</p>
+            
+            <div class="duel-container">
+                <div class="option-box">
+                    <span class="badge">A</span>
+                    <p id="curso-a-name">Cargando...</p>
+                    <button id="btn-vota-a" class="btn-primary">Votar A</button>
+                </div>
+                
+                <div class="vs">VS</div>
+
+                <div class="option-box">
+                    <span class="badge">B</span>
+                    <p id="curso-b-name">Cargando...</p>
+                    <button id="btn-vota-b" class="btn-primary">Votar B</button>
+                </div>
+            </div>
+
+            <div class="actions-row">
+                <button id="btn-exportar" class="btn-outline">⬇ Exportar CSV</button>
+                <button id="btn-ver-top" class="btn-accent">🏁 Actualizar Top</button>
+            </div>
+        </section>
+
+        <section class="card rank-card">
+            <h2>3) Ranking (Top 10)</h2>
+            <div class="ranking-list" id="ranking-container">
+                <p class="empty-state">Vota para generar datos...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Algoritmo A/B + Elo — Ingeniería de Sonido
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
